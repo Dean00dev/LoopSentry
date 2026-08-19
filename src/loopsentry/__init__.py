@@ -1,5 +1,5 @@
 """LoopSentry public API."""
 
-from .core import Detection, LoopSentry
+from .core import Detection, LoopSentry, Outcome
 
-__all__ = ["Detection", "LoopSentry"]
+__all__ = ["Detection", "LoopSentry", "Outcome"]
