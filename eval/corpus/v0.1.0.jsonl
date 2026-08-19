@@ -1,0 +1,6 @@
+{"id":"path-exact-001","label":"pathological","class":"exact_single_unit_loop","units":["poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem","poem"]}
+{"id":"path-cycle-001","label":"pathological","class":"short_periodic_cycle","units":["A","B","A","B","A","B","A","B","A","B","A","B","A","B","A","B","A","B","A","B","A","B","A","B","A","B","A","B","A","B","A","B"]}
+{"id":"benign-prose-001","label":"benign","class":"prose","units":["the","quick","brown","fox","jumps","over","the","lazy","dog","then","leaves","quietly"]}
+{"id":"benign-bounded-001","label":"benign","class":"bounded_requested_repetition","units":["hello","hello","hello","hello","hello","hello","hello","hello"]}
+{"id":"benign-code-001","label":"benign","class":"code","units":["}","}","}","}","return","result","}","}"]}
+{"id":"benign-json-001","label":"benign","class":"json","units":["{","id",":","1","}",",","{","id",":","2","}"]}
