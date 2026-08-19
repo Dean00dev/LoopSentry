@@ -1,29 +1,49 @@
-"""Deterministic streaming detection for pathological repetitive generation."""
+"""Deterministic streaming evidence for repetitive generation.
+
+LoopSentry v0.1 detects and reports. It does not terminate generation.
+Enforcement is deliberately left to callers until evaluation supports a policy.
+"""
 
 from __future__ import annotations
 
 from collections import deque
 from dataclasses import dataclass
+from enum import Enum
 from typing import Hashable, Iterable
 
 Token = Hashable
 
 
+class Outcome(str, Enum):
+    """Advisory control-flow outcome produced by the detector."""
+
+    CONTINUE = "continue"
+    FLAG = "flag"
+    TERMINATE_ELIGIBLE = "terminate_eligible"
+
+
 @dataclass(frozen=True)
 class Detection:
-    """Evidence describing why LoopSentry stopped a stream."""
+    """Evidence for a detected repetitive pattern, not an enforcement command."""
 
+    outcome: Outcome
     reason: str
     period: int
     repeats: int
-    observed_tokens: int
+    observed_units: int
+
+    @property
+    def observed_tokens(self) -> int:
+        """Backward-compatible alias; units need not be model tokens."""
+        return self.observed_units
 
 
 class LoopSentry:
-    """Incremental exact-cycle detector over arbitrary hashable tokens.
+    """Incremental exact-cycle baseline over arbitrary hashable units.
 
-    The detector is model-agnostic: callers may feed tokenizer IDs, words, characters,
-    tool-call fingerprints, or any other stable hashable unit.
+    Callers may feed tokenizer IDs, words, characters, or another stable unit.
+    Because units differ between integrations, cross-model latency claims must not
+    average token counts without identifying the tokenizer/unit used.
     """
 
     def __init__(
@@ -53,7 +73,7 @@ class LoopSentry:
         return self._seen
 
     def push(self, token: Token) -> Detection | None:
-        """Observe one token and return evidence if an exact suffix cycle is detected."""
+        """Observe one unit and return evidence if an exact suffix cycle is detected."""
         self._window.append(token)
         self._seen += 1
         if self._seen < self.min_observed_tokens:
@@ -68,15 +88,16 @@ class LoopSentry:
             pattern = suffix[:period]
             if suffix == pattern * self.min_repeats:
                 return Detection(
+                    outcome=Outcome.FLAG,
                     reason="exact_periodic_loop",
                     period=period,
                     repeats=self.min_repeats,
-                    observed_tokens=self._seen,
+                    observed_units=self._seen,
                 )
         return None
 
     def scan(self, tokens: Iterable[Token]) -> Detection | None:
-        """Feed tokens until the first detection."""
+        """Feed units until the first detection; never terminates the source stream."""
         for token in tokens:
             detection = self.push(token)
             if detection is not None:
