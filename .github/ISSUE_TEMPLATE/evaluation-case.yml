@@ -1,0 +1,46 @@
+name: Evaluation case
+description: Propose a synthetic pathological, benign, or ambiguous fixture
+title: "corpus: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A useful fixture sharpens a boundary; it does not merely make a rate look better. Use synthetic or explicitly authorized data only.
+  - type: dropdown
+    id: label
+    attributes:
+      label: Proposed label
+      options:
+        - Pathological — expected to flag
+        - Benign — expected to remain clear
+        - Ambiguous — report separately
+    validations:
+      required: true
+  - type: input
+    id: class
+    attributes:
+      label: Proposed fixture class
+      placeholder: bounded_requested_repetition
+    validations:
+      required: true
+  - type: textarea
+    id: recipe
+    attributes:
+      label: Minimal deterministic recipe
+      description: Describe or paste a compact JSON recipe that reproduces the unit sequence.
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why is that label correct?
+      description: Explain application intent and the closest counterexample.
+    validations:
+      required: true
+  - type: checkboxes
+    id: provenance
+    attributes:
+      label: Provenance
+      options:
+        - label: This fixture is synthetic or I am authorized to publish it.
+          required: true

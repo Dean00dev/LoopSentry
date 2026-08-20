@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">LoopSentry mark</title>
+  <desc id="desc">A glowing loop crossing a guarded detection gate.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1e34"/>
+      <stop offset="1" stop-color="#07101d"/>
+    </linearGradient>
+    <linearGradient id="loop" x1="96" y1="164" x2="416" y2="348" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#25e6d3"/>
+      <stop offset="0.52" stop-color="#36a6ff"/>
+      <stop offset="1" stop-color="#9b6cff"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect x="20" y="20" width="472" height="472" rx="112" fill="url(#bg)" stroke="#27415e" stroke-width="4"/>
+  <circle cx="256" cy="256" r="174" fill="none" stroke="#17304b" stroke-width="2" stroke-dasharray="4 14"/>
+  <path d="M92 256c0-62 44-108 102-108 84 0 88 216 172 216 34 0 54-25 54-60s-20-60-54-60c-84 0-88 120-172 120-58 0-102-46-102-108Z" fill="none" stroke="#152b44" stroke-width="34" stroke-linecap="round"/>
+  <path d="M92 256c0-62 44-108 102-108 84 0 88 216 172 216 34 0 54-25 54-60s-20-60-54-60c-84 0-88 120-172 120-58 0-102-46-102-108Z" fill="none" stroke="url(#loop)" stroke-width="18" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M256 102v308" stroke="#ffcf5a" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="256" cy="256" r="28" fill="#091522" stroke="#ffcf5a" stroke-width="8"/>
+  <circle cx="256" cy="256" r="8" fill="#fff4b8"/>
+  <path d="m238 119 18-22 18 22M238 393l18 22 18-22" fill="none" stroke="#ffcf5a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

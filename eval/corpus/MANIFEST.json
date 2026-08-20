@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "corpora": {
+    "v0.2.0.jsonl": {
+      "sha256": "832b49076ecb3469e0b3d539396e463edcdb89cdd3ae867488d1661af44835bf",
+      "cases": 32,
+      "labels": {
+        "ambiguous": 4,
+        "benign": 16,
+        "pathological": 12
+      }
+    }
+  }
+}

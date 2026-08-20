@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">LoopSentry social preview</title>
+  <desc id="desc">LoopSentry catches output that has stopped progressing.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1b30"/>
+      <stop offset="0.56" stop-color="#07111f"/>
+      <stop offset="1" stop-color="#120c2b"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.25" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#1c7395" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#07111f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="loop" x1="90" y1="170" x2="480" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#25e6d3"/>
+      <stop offset="0.52" stop-color="#36a6ff"/>
+      <stop offset="1" stop-color="#a26eff"/>
+    </linearGradient>
+    <linearGradient id="titleGradient" x1="605" y1="0" x2="1110" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f4fbff"/>
+      <stop offset="1" stop-color="#b9d8ff"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#8bc5ff" stroke-opacity="0.055"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" rx="30" fill="url(#background)"/>
+  <rect width="1280" height="640" rx="30" fill="url(#halo)"/>
+  <rect width="1280" height="640" rx="30" fill="url(#grid)"/>
+  <path d="M0 535C220 475 408 606 640 531s422-9 640-73" fill="none" stroke="#23ddcc" stroke-opacity="0.12" stroke-width="2"/>
+  <path d="M0 557C221 497 406 624 640 552s420-11 640-68" fill="none" stroke="#8f69ff" stroke-opacity="0.13" stroke-width="2"/>
+
+  <g transform="translate(62 64)">
+    <rect width="474" height="474" rx="112" fill="#091522" stroke="#274866" stroke-width="3"/>
+    <circle cx="237" cy="237" r="176" fill="none" stroke="#1a3c59" stroke-width="2" stroke-dasharray="4 14"/>
+    <path d="M73 237c0-62 44-108 102-108 84 0 88 216 172 216 34 0 54-25 54-60s-20-60-54-60c-84 0-88 120-172 120-58 0-102-46-102-108Z" fill="none" stroke="#142b43" stroke-width="34" stroke-linecap="round"/>
+    <path d="M73 237c0-62 44-108 102-108 84 0 88 216 172 216 34 0 54-25 54-60s-20-60-54-60c-84 0-88 120-172 120-58 0-102-46-102-108Z" fill="none" stroke="url(#loop)" stroke-width="18" stroke-linecap="round" filter="url(#glow)"/>
+    <path d="M237 83v308" stroke="#ffcf5a" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="237" cy="237" r="28" fill="#091522" stroke="#ffcf5a" stroke-width="8"/>
+    <circle cx="237" cy="237" r="8" fill="#fff4b8"/>
+    <path d="m219 100 18-22 18 22M219 374l18 22 18-22" fill="none" stroke="#ffcf5a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g font-family="DejaVu Sans, Arial, sans-serif">
+    <rect x="602" y="84" width="267" height="40" rx="20" fill="#133451" stroke="#2a6284"/>
+    <circle cx="626" cy="104" r="6" fill="#25e6d3"/>
+    <text x="644" y="111" fill="#aeece6" font-size="17" font-weight="700" letter-spacing="1.8">STREAMING LOOP GUARD</text>
+
+    <text x="596" y="235" fill="url(#titleGradient)" font-size="86" font-weight="800" letter-spacing="-3">LoopSentry</text>
+    <text x="602" y="298" fill="#8fb1ce" font-size="29" font-weight="500">Catch output that has stopped progressing.</text>
+
+    <line x1="602" y1="350" x2="1176" y2="350" stroke="#2a4660"/>
+    <text x="602" y="404" fill="#d9e9f5" font-size="23" font-weight="700">Detect</text>
+    <text x="687" y="404" fill="#496b86" font-size="23">•</text>
+    <text x="714" y="404" fill="#d9e9f5" font-size="23" font-weight="700">Explain</text>
+    <text x="814" y="404" fill="#496b86" font-size="23">•</text>
+    <text x="841" y="404" fill="#d9e9f5" font-size="23" font-weight="700">Let policy decide</text>
+
+    <g transform="translate(602 452)" font-size="14" font-weight="700" letter-spacing="1">
+      <rect width="195" height="42" rx="21" fill="#102b39" stroke="#246175"/>
+      <text x="21" y="27" fill="#69dfd3">PROVIDER-NEUTRAL</text>
+      <rect x="207" width="160" height="42" rx="21" fill="#14243b" stroke="#30557c"/>
+      <text x="230" y="27" fill="#81bff5">BOUNDED STATE</text>
+      <rect x="379" width="209" height="42" rx="21" fill="#211a3b" stroke="#5c478c"/>
+      <text x="398" y="27" fill="#baa0ff">CONTENT-FREE RECEIPTS</text>
+    </g>
+  </g>
+
+  <rect x="1.5" y="1.5" width="1277" height="637" rx="29" fill="none" stroke="#35506c" stroke-width="3"/>
+</svg>

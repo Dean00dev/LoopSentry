@@ -1,16 +1,17 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling==1.32.0"]
 build-backend = "hatchling.build"
 
 [project]
 name = "loopsentry"
-version = "0.1.0a1"
-description = "A model-agnostic runtime guard for pathological repetitive generation."
+version = "0.2.0a1"
+description = "Provider-neutral streaming evidence for pathological repetition in model and agent output."
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "Apache-2.0"}
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
 authors = [{name = "Dean Egan"}]
-keywords = ["llm", "inference", "safety", "repetition", "guardrail"]
+keywords = ["llm", "agents", "inference", "safety", "repetition", "guardrail"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "License :: OSI Approved :: Apache Software License",
@@ -18,14 +19,30 @@ classifiers = [
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Typing :: Typed",
 ]
 
+[project.urls]
+Homepage = "https://github.com/Dean00dev/LoopSentry"
+Documentation = "https://github.com/Dean00dev/LoopSentry#readme"
+Issues = "https://github.com/Dean00dev/LoopSentry/issues"
+Changelog = "https://github.com/Dean00dev/LoopSentry/blob/main/CHANGELOG.md"
+
+[project.scripts]
+loopsentry = "loopsentry.cli:main"
+
 [project.optional-dependencies]
-dev = ["pytest>=8", "ruff>=0.6"]
+dev = ["build==1.3.0", "pytest==9.1.1", "ruff==0.16.3"]
 
 [tool.pytest.ini_options]
 addopts = "-q"
 testpaths = ["tests"]
+pythonpath = ["."]
 
 [tool.ruff]
 line-length = 100
+
+[tool.ruff.lint]
+select = ["B", "E", "F", "I", "RUF", "SIM", "UP"]

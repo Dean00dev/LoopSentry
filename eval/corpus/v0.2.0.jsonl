@@ -1,0 +1,32 @@
+{"id":"path-single-word","label":"pathological","class":"exact_single_unit_loop","expected":"flag","expected_period":1,"recipe":"cycle","cycle":["poem"],"repeats":64}
+{"id":"path-single-token-id","label":"pathological","class":"exact_single_unit_loop","expected":"flag","expected_period":1,"recipe":"cycle","cycle":[42],"repeats":64}
+{"id":"path-single-unicode","label":"pathological","class":"unicode_loop","expected":"flag","expected_period":1,"recipe":"cycle","cycle":["⚠"],"repeats":64}
+{"id":"path-single-punctuation","label":"pathological","class":"punctuation_loop","expected":"flag","expected_period":1,"recipe":"cycle","cycle":["..."] ,"repeats":64}
+{"id":"path-cycle-2","label":"pathological","class":"short_periodic_cycle","expected":"flag","expected_period":2,"recipe":"cycle","cycle":["A","B"],"repeats":32}
+{"id":"path-cycle-3","label":"pathological","class":"short_periodic_cycle","expected":"flag","expected_period":3,"recipe":"cycle","cycle":["red","green","blue"],"repeats":24}
+{"id":"path-cycle-4","label":"pathological","class":"short_periodic_cycle","expected":"flag","expected_period":4,"recipe":"cycle","cycle":["one","two","three","four"],"repeats":20}
+{"id":"path-cycle-8","label":"pathological","class":"medium_periodic_cycle","expected":"flag","expected_period":8,"recipe":"cycle","cycle":["p0","p1","p2","p3","p4","p5","p6","p7"],"repeats":12}
+{"id":"path-cycle-16","label":"pathological","class":"maximum_periodic_cycle","expected":"flag","expected_period":16,"recipe":"cycle","cycle":["p00","p01","p02","p03","p04","p05","p06","p07","p08","p09","p10","p11","p12","p13","p14","p15"],"repeats":9}
+{"id":"path-after-prefix","label":"pathological","class":"loop_after_healthy_prefix","expected":"flag","expected_period":2,"recipe":"cycle","prefix_range":{"prefix":"context","count":40},"cycle":["stuck","again"],"repeats":20}
+{"id":"path-tool-cycle","label":"pathological","class":"agent_tool_event_cycle","expected":"flag","expected_period":2,"recipe":"cycle","prefix":["plan","start"],"cycle":["tool:search","result:retry"],"repeats":24}
+{"id":"path-code-cycle","label":"pathological","class":"code_generation_cycle","expected":"flag","expected_period":4,"recipe":"cycle","cycle":["def helper():","    return 1","","# retry"],"repeats":16}
+{"id":"benign-prose","label":"benign","class":"prose","expected":"clear","recipe":"literal","units":["the","quick","brown","fox","crossed","the","quiet","field","before","sunrise","and","paused","near","a","weathered","gate","while","three","birds","circled","above","then","it","continued","toward","the","river","where","morning","mist","lifted","slowly","from","the","water","and","revealed","the","opposite","bank"]}
+{"id":"benign-unique-stream","label":"benign","class":"high_diversity_stream","expected":"clear","recipe":"indexed","frame":["unit-{i}"],"count":96}
+{"id":"benign-bounded-single","label":"benign","class":"bounded_requested_repetition","expected":"clear","recipe":"cycle","cycle":["hello"],"repeats":7,"suffix_range":{"prefix":"after","count":40}}
+{"id":"benign-bounded-cycle","label":"benign","class":"bounded_requested_repetition","expected":"clear","recipe":"cycle","cycle":["yes","no"],"repeats":7,"suffix_range":{"prefix":"after","count":40}}
+{"id":"benign-json","label":"benign","class":"json","expected":"clear","recipe":"indexed","frame":["{","id","{i}","status","ok","}"],"count":20}
+{"id":"benign-csv","label":"benign","class":"csv","expected":"clear","recipe":"indexed","frame":["row-{i}","alpha","value-{i}"],"count":32}
+{"id":"benign-logs","label":"benign","class":"logs","expected":"clear","recipe":"indexed","frame":["INFO","request-{i}","complete-{i}"],"count":32}
+{"id":"benign-table","label":"benign","class":"table","expected":"clear","recipe":"indexed","frame":["|","row-{i}","|","value-{i}","|"],"count":24}
+{"id":"benign-code","label":"benign","class":"code","expected":"clear","recipe":"indexed","frame":["def","handler_{i}","(",")",":","return","{i}"],"count":18}
+{"id":"benign-numbered-list","label":"benign","class":"numbered_list","expected":"clear","recipe":"indexed","frame":["item-{i}","description-{i}"],"count":48}
+{"id":"benign-poetry-refrain","label":"benign","class":"poetry_refrain","expected":"clear","recipe":"indexed","frame":["verse-{i}","we-return","but-change-{i}","again"],"count":24}
+{"id":"benign-question-answer","label":"benign","class":"structured_dialogue","expected":"clear","recipe":"indexed","frame":["question-{i}","answer-{i}","confidence-{i}"],"count":32}
+{"id":"benign-near-loop-single","label":"benign","class":"adversarial_near_loop","expected":"clear","recipe":"perturbed_cycle","cycle":["repeat"],"repeats":70,"perturb_every":7}
+{"id":"benign-near-loop-pair","label":"benign","class":"adversarial_near_loop","expected":"clear","recipe":"perturbed_cycle","cycle":["A","B"],"repeats":42,"perturb_every":7}
+{"id":"benign-counters","label":"benign","class":"monotonic_sequence","expected":"clear","recipe":"indexed","frame":["count-{i}"],"count":96}
+{"id":"benign-test-fixtures","label":"benign","class":"test_fixture","expected":"clear","recipe":"indexed","frame":["assert","actual-{i}","equals","expected-{i}"],"count":24}
+{"id":"ambiguous-requested-repeat","label":"ambiguous","class":"user_requested_repetition","expected":"observe","recipe":"cycle","cycle":["hello"],"repeats":64}
+{"id":"ambiguous-separator","label":"ambiguous","class":"decorative_separator","expected":"observe","recipe":"cycle","cycle":["="],"repeats":64}
+{"id":"ambiguous-heartbeat","label":"ambiguous","class":"machine_heartbeat","expected":"observe","recipe":"cycle","cycle":["heartbeat","ok"],"repeats":32}
+{"id":"ambiguous-tool-retry","label":"ambiguous","class":"repeated_tool_retry","expected":"observe","recipe":"cycle","cycle":["tool:fetch","result:retry"],"repeats":32}
