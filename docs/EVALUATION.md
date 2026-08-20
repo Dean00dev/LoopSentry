@@ -12,7 +12,7 @@ LoopSentry's evaluation is designed to make a small synthetic result reproducibl
 | Benign | 16 | Expected to remain clear |
 | Ambiguous | 4 | Observed and reported; never counted as success or false positive |
 
-The manifest binds the filename, exact byte-level SHA-256, case count, and label counts. The evaluator rejects a changed corpus until the manifest is deliberately updated.
+The manifest binds the filename, exact byte-level SHA-256, case count, and label counts. The evaluator rejects a changed corpus until the manifest is deliberately updated. Repository attributes force corpus checkout to LF on every supported operating system so the byte-level identity is cross-platform.
 
 Current corpus SHA-256:
 

@@ -31,6 +31,7 @@ Nothing yet.
 ### Fixed
 
 - Resolve the three Ruff failures that made every hosted v0.1 CI job red before tests executed.
+- Force manifest-bound corpus files to LF on every checkout so byte-level identity is stable on Windows as well as Linux and macOS.
 - Reject invalid boolean and non-integer thresholds consistently.
 - Reject unhashable normalized units without partially advancing detector state.
 

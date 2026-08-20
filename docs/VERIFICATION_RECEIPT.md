@@ -43,7 +43,9 @@ Timing output is intentionally omitted from the release claim because it varies 
 
 ## Hosted evidence
 
-Pending first run of this release candidate. The workflow is configured for:
+Candidate [CI run #6](https://github.com/Dean00dev/LoopSentry/actions/runs/32359537658) passed quality, evaluation, all Linux cells, and both macOS cells. Both Windows cells exposed a line-ending defect: Git converted the manifest-bound JSONL corpus to CRLF, so its byte-level SHA no longer matched. The package installed and 38 of 40 tests passed before the two manifest checks rejected that checkout. The fix adds explicit LF repository attributes rather than weakening or platform-normalizing the integrity check.
+
+A clean follow-up run is pending. The workflow is configured for:
 
 - quality and corpus evaluation on Ubuntu with Python 3.14;
 - package tests on Ubuntu 3.10/3.11/3.12/3.13/3.14;
